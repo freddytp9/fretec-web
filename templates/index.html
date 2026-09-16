@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Fretec SpA | Soluciones industriales{% endblock %}
+{% block content %}
+<section class="hero"><div class="container hero-content"><p class="eyebrow">SOLUCIONES INDUSTRIALES</p><h1>Tu operación no puede detenerse.</h1><p class="lead">Mantenimiento, servicio técnico y soluciones industriales para que tus equipos sigan trabajando.</p><div class="actions"><a class="btn btn-orange" href="{{ url_for('contacto') }}">Solicitar cotización</a><a class="btn btn-outline" href="{{ url_for('servicios') }}">Ver servicios</a></div></div></section>
+<section class="section"><div class="container"><div class="section-head"><p class="eyebrow">LO QUE HACEMOS</p><h2>Soluciones para la industria</h2></div><div class="cards">{% for servicio in servicios %}<article class="card"><div class="icon">{{ servicio.icono }}</div><h3>{{ servicio.titulo }}</h3><p>{{ servicio.texto }}</p><a href="{{ url_for('servicios') }}">Conocer más →</a></article>{% endfor %}</div></div></section>
+<section class="band"><div class="container split"><div><p class="eyebrow">EXPERIENCIA EN TERRENO</p><h2>Servicio pensado para la operación real</h2></div><p>Trabajamos con una mirada práctica: diagnóstico, reparación, fabricación, instalación y seguimiento. Nuestro objetivo es entregar soluciones que funcionen en terreno.</p></div></section>
+<section class="section"><div class="container cta"><div><p class="eyebrow">¿TIENES UN PROYECTO?</p><h2>Conversemos sobre lo que necesitas.</h2></div><a class="btn btn-orange" href="{{ url_for('contacto') }}">Contactar a Fretec</a></div></section>
+{% endblock %}
