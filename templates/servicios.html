@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block title %}Servicios | Fretec SpA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">FRETEC SPA</p><h1>Servicios</h1><p>Soluciones técnicas y de mantenimiento para procesos industriales.</p></div></section>
+<section class="section"><div class="container cards">{% for servicio in servicios %}<article class="card service-card"><div class="icon">{{ servicio.icono }}</div><h2>{{ servicio.titulo }}</h2><p>{{ servicio.texto }}</p></article>{% endfor %}</div></section>
+<section class="band"><div class="container cta"><div><h2>¿Necesitas una solución a medida?</h2><p>Cuéntanos el equipo, proceso o problema y revisamos alternativas.</p></div><a class="btn btn-orange" href="{{ url_for('contacto') }}">Solicitar evaluación</a></div></section>
+{% endblock %}
