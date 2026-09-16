@@ -3,8 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B2D5C">
+  <meta name="description" content="Fretec SpA: mantenimiento industrial, servicio técnico, equipos de soldadura, extracción y filtrado de humos, estructuras metálicas, fabricación e insumos industriales.">
+  <meta name="keywords" content="mantenimiento industrial Chile, servicio técnico soldadoras, soldadura industrial, extracción humos soldadura, estructuras metálicas, CNC corte plasma, insumos soldadura">
   <title>{% block title %}Fretec SpA | Soluciones industriales{% endblock %}</title>
-  <meta name="description" content="Fretec SpA: mantenimiento industrial, servicio técnico, estructuras metálicas, extracción de humos e insumos de soldadura.">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -17,20 +19,20 @@
       <a href="{{ url_for('nosotros') }}">Nosotros</a>
       <a href="{{ url_for('servicios') }}">Servicios</a>
       <a href="{{ url_for('proyectos') }}">Proyectos</a>
-      <a class="nav-cta" href="{{ url_for('contacto') }}">Contacto</a>
+      <a class="nav-cta" href="{{ url_for('contacto') }}">Cotizar</a>
     </nav>
   </div>
 </header>
 <main>{% block content %}{% endblock %}</main>
 <footer class="footer">
   <div class="container footer-grid">
-    <div><div class="brand footer-brand"><span>FRE</span>TEC <small>SpA</small></div><p>Soluciones industriales para mantener tu operación en marcha.</p></div>
-    <div><h4>Servicios</h4><a href="{{ url_for('servicios') }}">Mantenimiento industrial</a><a href="{{ url_for('servicios') }}">Servicio técnico</a><a href="{{ url_for('servicios') }}">Extracción de humos</a></div>
-    <div><h4>Contacto</h4><a href="https://wa.me/56984059818" target="_blank" rel="noopener">WhatsApp +56 9 8405 9818</a><a href="{{ url_for('contacto') }}">Solicitar cotización</a></div>
+    <div><div class="brand footer-brand"><span>FRE</span>TEC <small>SpA</small></div><p>Soluciones que mantienen tu operación en marcha.</p><p class="footer-note">Mantenimiento · Servicio técnico · Soldadura · Fabricación · Extracción de humos · Suministro industrial</p></div>
+    <div><h4>Soluciones</h4><a href="{{ url_for('servicios') }}">Mantenimiento industrial</a><a href="{{ url_for('servicios') }}">Servicio técnico</a><a href="{{ url_for('servicios') }}">Extracción de humos</a><a href="{{ url_for('servicios') }}">Estructuras metálicas</a><a href="{{ url_for('servicios') }}">Insumos y equipos</a></div>
+    <div><h4>Contacto</h4><a href="https://wa.me/56984059818" target="_blank" rel="noopener">WhatsApp +56 9 8405 9818</a><a href="{{ url_for('contacto') }}">Solicitar cotización</a><p>Atención directa para servicios, proyectos y suministros industriales.</p></div>
   </div>
   <div class="copyright">© 2026 Fretec SpA. Todos los derechos reservados.</div>
 </footer>
-<a class="whatsapp" href="https://wa.me/56984059818?text=Hola%20Fretec,%20quiero%20consultar%20por%20un%20servicio." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">WA</a>
+<a class="whatsapp" href="https://wa.me/56984059818?text=Hola%20Fretec,%20quiero%20consultar%20por%20un%20servicio%20industrial." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">WA</a>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>
