@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Contacto | Fretec SpA{% endblock %}
+{% block content %}
+<section class="page-hero"><div class="container"><p class="eyebrow">HABLEMOS</p><h1>Contacto</h1><p>Cuéntanos qué necesitas y coordinamos la atención.</p></div></section>
+<section class="section"><div class="container contact-grid"><div><p class="eyebrow">CONTACTO DIRECTO</p><h2>Conversemos por WhatsApp</h2><p>Para consultas, servicios técnicos, proyectos o cotizaciones, puedes escribirnos directamente.</p><a class="btn btn-orange" href="https://wa.me/56984059818?text=Hola%20Fretec,%20quiero%20consultar%20por%20un%20servicio." target="_blank" rel="noopener">Escribir por WhatsApp</a></div><form class="contact-form" onsubmit="enviarWhatsApp(event)"><label>Nombre<input id="nombre" required></label><label>Empresa<input id="empresa"></label><label>Teléfono<input id="telefono" required></label><label>¿Qué necesitas?<textarea id="mensaje" rows="5" required></textarea></label><button class="btn btn-orange" type="submit">Enviar consulta</button></form></div></section>
+{% endblock %}
