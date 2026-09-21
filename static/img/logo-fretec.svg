@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="310" height="131" viewBox="0 0 310 131">
+  <rect width="310" height="131" fill="#fff"/>
+  <circle cx="61" cy="65.5" r="56" fill="#fff" stroke="#193f8f" stroke-width="3"/>
+  <circle cx="61" cy="65.5" r="49" fill="#274a98"/>
+  <g fill="none" stroke="#fff" stroke-width="2.4">
+    <rect x="38" y="31" width="46" height="69" rx="2"/>
+    <path d="M38 46h-9m9 16h-9m9 16h-9"/>
+    <circle cx="61" cy="51" r="8"/>
+    <circle cx="61" cy="80" r="8"/>
+  </g>
+  <g fill="#fff">
+    <path d="M61 40l2.4 4.4 4.9.9-3.4 3.6.7 4.9-4.6-2.2-4.6 2.2.7-4.9-3.4-3.6 4.9-.9z"/>
+    <path d="M61 69l2.4 4.4 4.9.9-3.4 3.6.7 4.9-4.6-2.2-4.6 2.2.7-4.9-3.4-3.6 4.9-.9z"/>
+  </g>
+  <text x="130" y="46" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#050505">Fretec SpA</text>
+  <text x="164" y="69" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#222">Tecnología</text>
+  <text x="178" y="89" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#222">&amp; Técnica</text>
+  <line x1="130" y1="105" x2="291" y2="105" stroke="#193f8f" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 8"/>
+</svg>
