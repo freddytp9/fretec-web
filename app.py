@@ -19,6 +19,10 @@ SECTORES = [
 def inicio():
     return render_template("index.html", servicios=SERVICIOS, sectores=SECTORES)
 
+@app.route("/cotizador")
+def cotizador():
+    return render_template("cotizador.html")
+
 @app.route("/servicios")
 def servicios():
     return render_template("servicios.html", servicios=SERVICIOS)
