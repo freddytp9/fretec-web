@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Cotizador Fretec SpA{% endblock %}
+{% block content %}
+<section class="page-hero quote-hero"><div class="container"><p class="eyebrow">HERRAMIENTA COMERCIAL FRETEC</p><h1>Cotizador de servicios</h1><p>Prepara una cotización profesional y compártela con tu cliente.</p></div></section>
+<section class="section quote-section"><div class="container quote-layout">
+  <div class="quote-form">
+    <div class="quote-card">
+      <div class="quote-card-head"><h2>1. Datos del cliente</h2><span>Completa los campos</span></div>
+      <div class="quote-fields">
+        <label>Cliente / Empresa<input id="cliente" placeholder="Nombre de la empresa" autocomplete="organization"></label>
+        <label>RUT<input id="rut" placeholder="RUT del cliente"></label>
+        <label>Atención de<input id="contacto" placeholder="Nombre de contacto"></label>
+        <label>Correo<input id="correo" type="email" placeholder="cliente@empresa.cl"></label>
+        <label>Teléfono<input id="telefono" placeholder="+56 9 ..."></label>
+        <label>N° de cotización<input id="numero" placeholder="Se asigna manualmente"></label>
+        <label class="field-wide">Descripción del servicio<textarea id="descripcion" rows="3" placeholder="Describe el trabajo, equipo o servicio a realizar"></textarea></label>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-card-head"><h2>2. Servicios y mano de obra</h2><span>Tarifas editables</span></div>
+      <div class="quote-fields">
+        <label>Visita técnica (neto $)<input id="visita" type="number" min="0" step="1000" value="40000"></label>
+        <label>Valor hora técnico (neto $)<input id="valorHora" type="number" min="0" step="500" value="15000"></label>
+        <label>Horas de trabajo<input id="horas" type="number" min="0" step="0.5" value="0"></label>
+        <label>Otros servicios (neto $)<input id="otros" type="number" min="0" step="1000" value="0"></label>
+      </div>
+      <p class="quote-hint">La visita técnica se cobra por separado y no se descuenta ni se incluye en las horas de trabajo.</p>
+    </div>
+    <div class="quote-card">
+      <div class="quote-card-head"><h2>3. Materiales</h2><button class="btn-small" type="button" id="agregarMaterial">+ Agregar material</button></div>
+      <div class="materials-head"><span>Descripción</span><span>Cantidad</span><span>Valor unitario neto</span><span></span></div>
+      <div id="materiales"></div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-card-head"><h2>4. Condiciones</h2></div>
+      <div class="quote-fields">
+        <label>Plazo de ejecución<input id="plazo" placeholder="Ej. A coordinar"></label>
+        <label>Validez de la oferta<input id="validez" value="15 días"></label>
+        <label class="field-wide">Observaciones<textarea id="observaciones" rows="2" placeholder="Condiciones adicionales, exclusiones, forma de pago..."></textarea></label>
+      </div>
+    </div>
+  </div>
+  <aside class="quote-preview">
+    <div class="quote-card totals-card">
+      <p class="eyebrow">RESUMEN DE COTIZACIÓN</p><h2>Fretec SpA</h2>
+      <div class="total-line"><span>Visita técnica</span><strong id="resVisita">$40.000</strong></div>
+      <div class="total-line"><span>Mano de obra</span><strong id="resMano">$0</strong></div>
+      <div class="total-line"><span>Otros servicios</span><strong id="resOtros">$0</strong></div>
+      <div class="total-line"><span>Materiales</span><strong id="resMateriales">$0</strong></div>
+      <div class="total-line subtotal"><span>Neto</span><strong id="resNeto">$40.000</strong></div>
+      <div class="total-line"><span>IVA (19%)</span><strong id="resIva">$7.600</strong></div>
+      <div class="total-final"><span>TOTAL</span><strong id="resTotal">$47.600</strong></div>
+      <p class="quote-hint">Montos expresados en pesos chilenos (CLP).</p>
+      <button class="btn btn-orange quote-action" id="generarPdf" type="button">Imprimir / Guardar PDF</button>
+      <button class="btn btn-whatsapp quote-action" id="enviarWhatsapp" type="button">Compartir por WhatsApp</button>
+      <button class="btn btn-mail quote-action" id="enviarCorreo" type="button">Preparar correo</button>
+    </div>
+  </aside>
+</div></section>
+<section class="print-only" id="documentoCotizacion">
+  <div class="pdf-head"><img src="{{ url_for('static', filename='img/logo-fretec.jpg') }}" alt="Fretec SpA"><div><strong>COTIZACIÓN</strong><p>Fretec SpA · Tecnología & Técnica</p><p>WhatsApp: +56 9 8405 9818</p></div></div>
+  <div class="pdf-meta"><span><b>N°:</b> <i data-pdf="numero"></i></span><span><b>Fecha:</b> <i id="fechaPdf"></i></span></div>
+  <h3>Datos del cliente</h3><p><b>Cliente:</b> <i data-pdf="cliente"></i> &nbsp; <b>RUT:</b> <i data-pdf="rut"></i></p><p><b>Atención:</b> <i data-pdf="contacto"></i> &nbsp; <b>Correo:</b> <i data-pdf="correo"></i></p>
+  <h3>Descripción del servicio</h3><p data-pdf="descripcion"></p>
+  <h3>Detalle económico</h3><table class="pdf-table"><thead><tr><th>Ítem</th><th>Cantidad</th><th>Valor unitario</th><th>Total neto</th></tr></thead><tbody id="pdfItems"></tbody></table>
+  <div class="pdf-totals"><p>Neto: <b id="pdfNeto"></b></p><p>IVA 19%: <b id="pdfIva"></b></p><h2>Total: <b id="pdfTotal"></b></h2></div>
+  <p><b>Plazo de ejecución:</b> <i data-pdf="plazo"></i> &nbsp; <b>Validez:</b> <i data-pdf="validez"></i></p><p><b>Observaciones:</b> <i data-pdf="observaciones"></i></p>
+  <div class="pdf-footer">Fretec SpA · Soluciones que mantienen tu operación en marcha.</div>
+</section>
+{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{{ url_for('static', filename='css/cotizador.css') }}">{% endblock %}
+{% block extra_scripts %}<script src="{{ url_for('static', filename='js/cotizador.js') }}"></script>{% endblock %}
