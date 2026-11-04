@@ -8,6 +8,7 @@
   <meta name="keywords" content="mantenimiento industrial Chile, servicio técnico soldadoras, soldadura industrial, extracción humos soldadura, estructuras metálicas, CNC corte plasma, insumos soldadura">
   <title>{% block title %}Fretec SpA | Soluciones industriales{% endblock %}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_head %}{% endblock %}
 </head>
 <body>
 <header class="header">
@@ -19,7 +20,8 @@
       <a href="{{ url_for('nosotros') }}">Nosotros</a>
       <a href="{{ url_for('servicios') }}">Servicios</a>
       <a href="{{ url_for('proyectos') }}">Proyectos</a>
-      <a class="nav-cta" href="{{ url_for('contacto') }}">Cotizar</a>
+      <a href="{{ url_for('cotizador') }}">Cotizador</a>
+      <a class="nav-cta" href="{{ url_for('contacto') }}">Contacto</a>
     </nav>
   </div>
 </header>
@@ -34,5 +36,6 @@
 </footer>
 <a class="whatsapp" href="https://wa.me/56984059818?text=Hola%20Fretec,%20quiero%20consultar%20por%20un%20servicio%20industrial." target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">WA</a>
 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block extra_scripts %}{% endblock %}
 </body>
 </html>
